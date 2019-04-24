@@ -22,6 +22,14 @@ namespace TestProject1
 
 			result.Should().Be("2");
 		}
+
+		[Fact]
+		public void ShouldConvertFourToString()
+		{
+			var result = FizzBuzzConverter.Convert(4);
+
+			result.Should().Be("4");
+		}
 		
 		
 	}
