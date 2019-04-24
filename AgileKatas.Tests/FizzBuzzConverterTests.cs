@@ -17,5 +17,13 @@ namespace TestProject1
 
 			result.Should().Be(expected);
 		}
+
+		[Fact]
+		public void ShouldConvertThreeToFizz()
+		{
+			var result = FizzBuzzConverter.Convert(3);
+
+			result.Should().Be("fizz");
+		}
 	}
 }
