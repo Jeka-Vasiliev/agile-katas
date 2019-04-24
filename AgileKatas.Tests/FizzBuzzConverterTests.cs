@@ -13,6 +13,7 @@ namespace TestProject1
 		[InlineData(4, "4")]
 		[InlineData(3, "fizz")]
 		[InlineData(6, "fizz")]
+		[InlineData(9, "fizz")]
 		public void ShouldConvertNumberToString(int number, string expected)
 		{
 			var result = FizzBuzzConverter.Convert(number);
