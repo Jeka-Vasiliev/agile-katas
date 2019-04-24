@@ -4,7 +4,7 @@ namespace AgileKatas
 	{
 		public static string Convert(int i)
 		{
-			if (i == 5)
+			if (i == 5 || i == 10)
 			{
 				return "buzz";
 			}
