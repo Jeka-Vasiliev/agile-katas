@@ -7,30 +7,15 @@ namespace TestProject1
 {
 	public class UnitTest1
 	{
-		[Fact]
-		public void ShouldConvertOneToString()
+		[Theory]
+		[InlineData(1, "1")]
+		[InlineData(2, "2")]
+		[InlineData(4, "4")]
+		public void ShouldConvertNumberToString(int number, string expected)
 		{
-			var result = FizzBuzzConverter.Convert(1);
+			var result = FizzBuzzConverter.Convert(number);
 
-			result.Should().Be("1");
+			result.Should().Be(expected);
 		}
-
-		[Fact]
-		public void ShouldConvertTwoToString()
-		{
-			var result = FizzBuzzConverter.Convert(2);
-
-			result.Should().Be("2");
-		}
-
-		[Fact]
-		public void ShouldConvertFourToString()
-		{
-			var result = FizzBuzzConverter.Convert(4);
-
-			result.Should().Be("4");
-		}
-		
-		
 	}
 }
