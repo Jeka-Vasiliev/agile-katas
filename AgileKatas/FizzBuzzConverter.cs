@@ -4,7 +4,7 @@ namespace AgileKatas
 	{
 		public static string Convert(int i)
 		{
-			return i == 3 || i == 6 || i == 9 ? "fizz" : i.ToString();
+			return i % 3 == 0 ? "fizz" : i.ToString();
 		}
 	}
 }
