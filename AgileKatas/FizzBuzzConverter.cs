@@ -4,6 +4,11 @@ namespace AgileKatas
 	{
 		public static string Convert(int i)
 		{
+			if (i == 5)
+			{
+				return "buzz";
+			}
+
 			return i % 3 == 0 ? "fizz" : i.ToString();
 		}
 	}
