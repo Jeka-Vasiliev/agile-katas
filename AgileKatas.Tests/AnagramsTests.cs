@@ -34,5 +34,13 @@ namespace TestProject1
 
 			result.Should().ContainSingle().Which.Should().Be("aa");
 		}
+
+		[Fact]
+		public void Should_return_ab_and_ba_when_text_is_ab()
+		{
+			string[] result = Anagrams.Get("ab");
+
+			result.Should().Contain(new [] {"ab", "ba"});
+		}
 	}
 }
