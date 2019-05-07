@@ -49,6 +49,7 @@ namespace TestProject1
 
 		[Theory]
 		[InlineData("aab", "aab", "aba", "baa")]
+		[InlineData("aac", "aac", "aca", "caa")]
 		public void Should_contains_three_values_when_one_of_three_symbols_different(string textForTest, params string[] expected)
 		{
 			var result = Anagrams.Get(textForTest);

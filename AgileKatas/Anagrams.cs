@@ -28,11 +28,14 @@ namespace AgileKatas
 				return new[] {label};
 			}
 
-			if (label.Length > 2)
+			if (label.Length > 2 && label.GroupBy(x=>x).Count() == 2)
 			{
-				var reverted = string.Join("", label.ToCharArray().Reverse());
+				var uniqueKey = label.GroupBy(x => x).Where(x => x.Count() == 1).Single().Key;
+				var nonUniqueKey = label.GroupBy(x => x).Where(x => x.Count() > 1).Single().Key;
 				
-				return new[] {label, reverted, "aba"};
+				return Enumerable.Range(0, label.Length)
+					.Select(i => string.Join("", Enumerable.Range(0 , label.Length).Select(j => i == j ? uniqueKey : nonUniqueKey)))
+					.ToArray();
 			}
 
 
