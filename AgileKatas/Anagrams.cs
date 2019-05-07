@@ -17,29 +17,28 @@ namespace AgileKatas
 				return new[] {label};
 			}
 
-			if (label.Length == 2)
+			if (IfOneUniqueSymbol(label))
 			{
-				if (label[0] != label[1])
-				{
-					var reverted = string.Join("", label.ToCharArray().Reverse());
-					return new[] {label, reverted};
-				}
-
-				return new[] {label};
-			}
-
-			if (label.Length > 2 && label.GroupBy(x=>x).Count() == 2)
-			{
-				var uniqueKey = label.GroupBy(x => x).Where(x => x.Count() == 1).Single().Key;
-				var nonUniqueKey = label.GroupBy(x => x).Where(x => x.Count() > 1).Single().Key;
-				
-				return Enumerable.Range(0, label.Length)
-					.Select(i => string.Join("", Enumerable.Range(0 , label.Length).Select(j => i == j ? uniqueKey : nonUniqueKey)))
-					.ToArray();
+				return CreateOneUniqueSymbolAnagrams(label);
 			}
 
 
 			return new string[0];
+		}
+
+		private static bool IfOneUniqueSymbol(string label)
+		{
+			return label.Length > 1 && label.GroupBy(x => x).Count() == 2;
+		}
+
+		private static string[] CreateOneUniqueSymbolAnagrams(string label)
+		{
+			var uniqueKey = label.GroupBy(x => x).Where(x => x.Count() == 1).First().Key;
+			var nonUniqueKey = label.First(x => x != uniqueKey);
+
+			return Enumerable.Range(0, label.Length)
+				.Select(i => string.Join("", Enumerable.Range(0, label.Length).Select(j => i == j ? uniqueKey : nonUniqueKey)))
+				.ToArray();
 		}
 	}
 }
