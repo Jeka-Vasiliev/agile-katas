@@ -26,5 +26,13 @@ namespace TestProject1
 			
 			result.Should().ContainSingle().Which.Should().Be(textForTest);
 		}
+
+		[Fact]
+		public void Should_return_same_string_if_no_anagrams()
+		{
+			string[] result = Anagrams.Get("aa");
+
+			result.Should().ContainSingle().Which.Should().Be("aa");
+		}
 	}
 }
