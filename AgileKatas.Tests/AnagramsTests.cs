@@ -40,14 +40,6 @@ namespace TestProject1
 		[Theory]
 		[InlineData("ab", "ab", "ba")]
 		[InlineData("ac", "ac", "ca")]
-		public void Should_return_two_anagrams_when_text_contains_two_different_symbols(string textForTest, params string[] expected)
-		{
-			var result = Anagrams.Get(textForTest);
-
-			result.Should().Contain(expected);
-		}
-
-		[Theory]
 		[InlineData("aab", "aab", "aba", "baa")]
 		[InlineData("aac", "aac", "aca", "caa")]
 		[InlineData("aaab", "aaab", "aaba", "abaa", "baaa")]
