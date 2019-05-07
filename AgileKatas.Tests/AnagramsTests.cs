@@ -47,37 +47,14 @@ namespace TestProject1
 			result.Should().Contain(expected);
 		}
 
-		[Fact]
-		public void Should_return_thee_anagrams_if_two_same_symbols_in_of_three()
+		[Theory]
+		[InlineData("aab", "aab", "aba", "baa")]
+		public void Should_contains_three_values_when_one_of_three_symbols_different(string textForTest, params string[] expected)
 		{
-			var result = Anagrams.Get("aab");
+			var result = Anagrams.Get(textForTest);
 
-			result.Should().HaveCount(3);
+			result.Should().HaveCount(expected.Length);
+			result.Should().Contain(expected);
 		}
-
-		[Fact]
-		public void Should_contains_initial_value()
-		{
-			var result = Anagrams.Get("aab");
-
-			result.Should().Contain("aab");
-		}
-
-		[Fact]
-		public void Should_contain_reverted_initial_value()
-		{
-			var result = Anagrams.Get("aab");
-
-			result.Should().Contain("baa");
-		}
-
-		[Fact]
-		public void Should_contain_half_reverted_initial_value()
-		{
-			string[] result = Anagrams.Get("aab");
-
-			result.Should().Contain("aba");
-		}
-
 	}
 }
