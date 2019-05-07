@@ -29,7 +29,7 @@ namespace AgileKatas
 
 			if (label.Length > 2)
 			{
-				return new[] {"", "", ""};
+				return new[] {label, "", ""};
 			}
 
 

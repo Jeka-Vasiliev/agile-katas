@@ -55,5 +55,14 @@ namespace TestProject1
 			result.Should().HaveCount(3);
 		}
 
+		[Fact]
+		public void Should_contains_initial_value()
+		{
+			string[] result = Anagrams.Get("aab");
+
+			result.Should().Contain("aab");
+
+		}
+
 	}
 }
