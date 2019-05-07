@@ -47,5 +47,13 @@ namespace TestProject1
 			result.Should().Contain(expected);
 		}
 
+		[Fact]
+		public void Should_return_thee_anagrams_if_two_same_symbols_in_of_three()
+		{
+			string[] result = Anagrams.Get("aab");
+
+			result.Should().HaveCount(3);
+		}
+
 	}
 }

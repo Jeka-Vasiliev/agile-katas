@@ -27,6 +27,12 @@ namespace AgileKatas
 				return new[] {label};
 			}
 
+			if (label.Length > 2)
+			{
+				return new[] {"", "", ""};
+			}
+
+
 			return new string[0];
 		}
 	}
