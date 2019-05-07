@@ -9,10 +9,10 @@ namespace TestProject1
 		[Fact]
 		void Should_return_empty_array_when_empty_string()
 		{
-			var textForTest = "";	
-			
+			var textForTest = "";
+
 			var result = Anagrams.Get(textForTest);
-			
+
 			result.Should().BeEmpty();
 		}
 
@@ -23,7 +23,7 @@ namespace TestProject1
 		public void Should_return_same_symbol_if_one_symbol(string textForTest)
 		{
 			var result = Anagrams.Get(textForTest);
-			
+
 			result.Should().ContainSingle().Which.Should().Be(textForTest);
 		}
 
@@ -49,6 +49,16 @@ namespace TestProject1
 
 			result.Should().HaveCount(expected.Length);
 			result.Should().Contain(expected);
+		}
+
+		[Fact]
+		public void Should_contain_reverted_value_when_all_symbols_are_different()
+		{
+			var textForTest = "abc";
+
+			var result = Anagrams.Get(textForTest);
+
+			result.Should().Contain("cba");
 		}
 	}
 }

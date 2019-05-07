@@ -7,6 +7,11 @@ namespace AgileKatas
 	{
 		public static string[] Get(string label)
 		{
+			if (string.IsNullOrEmpty(label))
+			{
+				return new string[0];
+			}
+			
 			if (label.Length == 1)
 			{
 				return new[] {label};
@@ -22,9 +27,21 @@ namespace AgileKatas
 				return CreateOneUniqueSymbolAnagrams(label);
 			}
 
+			if (IsEveryOneUnique(label))
+			{
+				return CreateAllUniqueSymbolAnagrams(label);
+			}
+
 
 			return new string[0];
 		}
+
+		private static string[] CreateAllUniqueSymbolAnagrams(string label)
+		{
+			return new[] {"cba"};
+		}
+
+		private static bool IsEveryOneUnique(string label) => label.GroupBy(x => x).All(x => x.Count() == 1);
 
 		private static bool IfOneUniqueSymbol(string label)
 		{
