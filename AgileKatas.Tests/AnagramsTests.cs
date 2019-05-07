@@ -32,7 +32,7 @@ namespace TestProject1
 		[InlineData("aaa")]
 		public void Should_return_same_string_if_no_anagrams(string textForTest)
 		{
-			string[] result = Anagrams.Get(textForTest);
+			var result = Anagrams.Get(textForTest);
 
 			result.Should().ContainSingle().Which.Should().Be(textForTest);
 		}
@@ -50,7 +50,7 @@ namespace TestProject1
 		[Fact]
 		public void Should_return_thee_anagrams_if_two_same_symbols_in_of_three()
 		{
-			string[] result = Anagrams.Get("aab");
+			var result = Anagrams.Get("aab");
 
 			result.Should().HaveCount(3);
 		}
@@ -58,10 +58,17 @@ namespace TestProject1
 		[Fact]
 		public void Should_contains_initial_value()
 		{
-			string[] result = Anagrams.Get("aab");
+			var result = Anagrams.Get("aab");
 
 			result.Should().Contain("aab");
+		}
 
+		[Fact]
+		public void Should_contain_reverted_initial_value()
+		{
+			var result = Anagrams.Get("aab");
+
+			result.Should().Contain("baa");
 		}
 
 	}

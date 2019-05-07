@@ -21,7 +21,8 @@ namespace AgileKatas
 			{
 				if (label[0] != label[1])
 				{
-					return new[] {label, string.Join("", label.ToCharArray().Reverse())};
+					var reverted = string.Join("", label.ToCharArray().Reverse());
+					return new[] {label, reverted};
 				}
 
 				return new[] {label};
@@ -29,7 +30,8 @@ namespace AgileKatas
 
 			if (label.Length > 2)
 			{
-				return new[] {label, "", ""};
+				var reverted = string.Join("", label.ToCharArray().Reverse());
+				return new[] {label, reverted, ""};
 			}
 
 
