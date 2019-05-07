@@ -71,5 +71,13 @@ namespace TestProject1
 			result.Should().Contain("baa");
 		}
 
+		[Fact]
+		public void Should_contain_half_reverted_initial_value()
+		{
+			string[] result = Anagrams.Get("aab");
+
+			result.Should().Contain("aba");
+		}
+
 	}
 }
