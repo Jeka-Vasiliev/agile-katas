@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace AgileKatas
 {
@@ -13,9 +14,9 @@ namespace AgileKatas
 
 			if (label.Length == 2)
 			{
-				if (label == "ab")
+				if (label[0] != label[1])
 				{
-					return new[] {"ab", "ba"};
+					return new[] {label, string.Join("", label.ToCharArray().Reverse())};
 				}
 
 				return new[] {label};

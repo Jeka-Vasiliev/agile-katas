@@ -35,12 +35,14 @@ namespace TestProject1
 			result.Should().ContainSingle().Which.Should().Be("aa");
 		}
 
-		[Fact]
-		public void Should_return_ab_and_ba_when_text_is_ab()
+		[Theory]
+		[InlineData("ab", "ab", "ba")]
+		[InlineData("ac", "ac", "ca")]
+		public void Should_return_two_anagrams_when_text_contains_two_different_symbols(string textForTest, params string[] expected)
 		{
-			string[] result = Anagrams.Get("ab");
+			var result = Anagrams.Get(textForTest);
 
-			result.Should().Contain(new [] {"ab", "ba"});
+			result.Should().Contain(expected);
 		}
 	}
 }
