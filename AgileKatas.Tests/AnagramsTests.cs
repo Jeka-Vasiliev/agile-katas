@@ -27,12 +27,14 @@ namespace TestProject1
 			result.Should().ContainSingle().Which.Should().Be(textForTest);
 		}
 
-		[Fact]
-		public void Should_return_same_string_if_no_anagrams()
+		[Theory]
+		[InlineData("aa")]
+		[InlineData("aaa")]
+		public void Should_return_same_string_if_no_anagrams(string textForTest)
 		{
-			string[] result = Anagrams.Get("aa");
+			string[] result = Anagrams.Get(textForTest);
 
-			result.Should().ContainSingle().Which.Should().Be("aa");
+			result.Should().ContainSingle().Which.Should().Be(textForTest);
 		}
 
 		[Theory]
@@ -44,5 +46,6 @@ namespace TestProject1
 
 			result.Should().Contain(expected);
 		}
+
 	}
 }

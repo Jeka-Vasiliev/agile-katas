@@ -12,6 +12,11 @@ namespace AgileKatas
 				return new[] {label};
 			}
 
+			if (label.GroupBy(x => x).Count() == 1)
+			{
+				return new[] {label};
+			}
+
 			if (label.Length == 2)
 			{
 				if (label[0] != label[1])
