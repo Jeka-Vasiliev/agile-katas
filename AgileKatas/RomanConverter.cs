@@ -1,15 +1,17 @@
+using System.Text;
+
 namespace AgileKatas
 {
 	public class RomanConverter
 	{
 		public static string Convert(int arabic)
 		{
-			if (arabic == 6)
+			if (arabic >= 5)
 			{
-				return "VI";
+				return "V" + Convert(arabic - 5);
 			}
 			
-			return arabic == 5 ? "V" : new string('I', arabic);
+			return new string('I', arabic);
 		}
 	}
 }
