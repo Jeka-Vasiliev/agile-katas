@@ -4,7 +4,7 @@ namespace AgileKatas
 	{
 		public static string Convert(int i)
 		{
-			return new string('I', i);
+			return i == 5 ? "V" : new string('I', i);
 		}
 	}
 }
