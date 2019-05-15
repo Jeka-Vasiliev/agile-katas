@@ -2,14 +2,14 @@ namespace AgileKatas
 {
 	public class RomanConverter
 	{
-		public static string Convert(int i)
+		public static string Convert(int arabic)
 		{
-			if (i == 6)
+			if (arabic == 6)
 			{
 				return "VI";
 			}
 			
-			return i == 5 ? "V" : new string('I', i);
+			return arabic == 5 ? "V" : new string('I', arabic);
 		}
 	}
 }
