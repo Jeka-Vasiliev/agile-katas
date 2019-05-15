@@ -14,9 +14,10 @@ namespace AgileKatas
 				if (arabic == arabicNumber) return RomanNumbers[i];
 			}
 
-			if (arabic < 5) return RomanNumberI(arabic);
+			if (10 <= arabic) return "X" + Convert(arabic - 10);
+			if (5 <= arabic) return "V" + Convert(arabic - 5);
+			return RomanNumberI(arabic);
 
-			return "V" + Convert(arabic - 5);
 		}
 
 		private static string RomanNumberI(int arabic)

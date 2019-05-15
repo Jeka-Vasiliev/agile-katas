@@ -14,6 +14,7 @@ namespace TestProject1
 		[InlineData(8, "VIII")]
 		[InlineData(4, "IV")]
 		[InlineData(10, "X")]
+		[InlineData(11, "XI")]
 		public void Should_convert_arabic_to_roman(int arabicNumber, string expectedRomanNumber)
 		{
 			var romanNumber = RomanConverter.Convert(arabicNumber);
