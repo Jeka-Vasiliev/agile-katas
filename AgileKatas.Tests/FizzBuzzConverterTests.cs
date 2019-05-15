@@ -1,4 +1,3 @@
-using System;
 using AgileKatas;
 using FluentAssertions;
 using Xunit;

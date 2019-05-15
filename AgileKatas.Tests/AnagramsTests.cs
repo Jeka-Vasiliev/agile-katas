@@ -6,16 +6,6 @@ namespace TestProject1
 {
 	public class AnagramsTests
 	{
-		[Fact]
-		void Should_return_empty_array_when_empty_string()
-		{
-			var textForTest = "";
-
-			var result = Anagrams.Get(textForTest);
-
-			result.Should().BeEmpty();
-		}
-
 		[Theory]
 		[InlineData("a")]
 		[InlineData("b")]
@@ -59,6 +49,16 @@ namespace TestProject1
 			var result = Anagrams.Get(textForTest);
 
 			result.Should().Contain("cba");
+		}
+
+		[Fact]
+		private void Should_return_empty_array_when_empty_string()
+		{
+			var textForTest = "";
+
+			var result = Anagrams.Get(textForTest);
+
+			result.Should().BeEmpty();
 		}
 	}
 }

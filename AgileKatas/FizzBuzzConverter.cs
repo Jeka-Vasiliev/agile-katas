@@ -4,15 +4,9 @@ namespace AgileKatas
 	{
 		public static string Convert(int i)
 		{
-			if (i % 15 == 0)
-			{
-				return "fizzbuzz";
-			}
+			if (i % 15 == 0) return "fizzbuzz";
 
-			if (i % 5 == 0)
-			{
-				return "buzz";
-			}
+			if (i % 5 == 0) return "buzz";
 
 			return i % 3 == 0 ? "fizz" : i.ToString();
 		}

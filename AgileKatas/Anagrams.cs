@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 
 namespace AgileKatas
@@ -7,30 +6,15 @@ namespace AgileKatas
 	{
 		public static string[] Get(string label)
 		{
-			if (string.IsNullOrEmpty(label))
-			{
-				return new string[0];
-			}
-			
-			if (label.Length == 1)
-			{
-				return new[] {label};
-			}
+			if (string.IsNullOrEmpty(label)) return new string[0];
 
-			if (label.GroupBy(x => x).Count() == 1)
-			{
-				return new[] {label};
-			}
+			if (label.Length == 1) return new[] {label};
 
-			if (IfOneUniqueSymbol(label))
-			{
-				return CreateOneUniqueSymbolAnagrams(label);
-			}
+			if (label.GroupBy(x => x).Count() == 1) return new[] {label};
 
-			if (IsEveryOneUnique(label))
-			{
-				return CreateAllUniqueSymbolAnagrams(label);
-			}
+			if (IfOneUniqueSymbol(label)) return CreateOneUniqueSymbolAnagrams(label);
+
+			if (IsEveryOneUnique(label)) return CreateAllUniqueSymbolAnagrams(label);
 
 
 			return new string[0];
@@ -41,7 +25,10 @@ namespace AgileKatas
 			return new[] {"cba"};
 		}
 
-		private static bool IsEveryOneUnique(string label) => label.GroupBy(x => x).All(x => x.Count() == 1);
+		private static bool IsEveryOneUnique(string label)
+		{
+			return label.GroupBy(x => x).All(x => x.Count() == 1);
+		}
 
 		private static bool IfOneUniqueSymbol(string label)
 		{
