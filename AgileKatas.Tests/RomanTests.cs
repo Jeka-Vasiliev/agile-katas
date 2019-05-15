@@ -1,3 +1,4 @@
+using AgileKatas;
 using FluentAssertions;
 using Xunit;
 
@@ -6,18 +7,17 @@ namespace TestProject1
 	public class RomanTests
 	{
 		[Fact]
-		public void Should_Convert_1_to_I()
+		public void Should_convert_1_to_I()
 		{
 			var romanNumber = RomanConverter.Convert(1);
 			romanNumber.Should().Be("I");
 		}
-	}
 
-	public class RomanConverter
-	{
-		public static string Convert(int i)
+		[Fact]
+		public void Should_convert_2_to_II()
 		{
-			return "I";
+			var romanNumber = RomanConverter.Convert(2);
+			romanNumber.Should().Be("II");
 		}
 	}
 }
