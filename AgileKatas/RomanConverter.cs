@@ -8,9 +8,16 @@ namespace AgileKatas
 
 		public static string Convert(int arabic)
 		{
+			if (arabic == 40)
+			{
+				var closestArabicNumber = arabic + ArabicNumbers[2];
+				return RomanNumbers[2] + Convert(closestArabicNumber);
+			}
+			
 			for (var i = 1; i < ArabicNumbers.Length; i++)
 			{
-				if (ArabicNumbers[i] == arabic + 1) return "I" + Convert(arabic + 1);
+				var closestArabicNumber = arabic + ArabicNumbers[0];
+				if (ArabicNumbers[i] == closestArabicNumber) return RomanNumbers[0] + Convert(closestArabicNumber);
 			}
 			
 			for (var i = ArabicNumbers.Length - 1; i >= 0; i--)
