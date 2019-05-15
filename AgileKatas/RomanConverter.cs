@@ -2,20 +2,23 @@ namespace AgileKatas
 {
 	public class RomanConverter
 	{
-		private static readonly int[] ArabicNumbers = {4, 10};
+		private static readonly int[] ArabicNumbers = {1, 5, 10};
 
-		private static readonly string[] RomanNumbers = {"IV", "X"};
+		private static readonly string[] RomanNumbers = {"I", "V", "X"};
 
 		public static string Convert(int arabic)
 		{
-			for (var i = 0; i < ArabicNumbers.Length; i++)
+			if (arabic == 4)
+			{
+				return "IV";
+			}
+			
+			for (var i = ArabicNumbers.Length - 1; i >= 0; i--)
 			{
 				var arabicNumber = ArabicNumbers[i];
-				if (arabic == arabicNumber) return RomanNumbers[i];
+				if (arabicNumber <= arabic) return RomanNumbers[i] + Convert(arabic - arabicNumber);
 			}
-
-			if (10 <= arabic) return "X" + Convert(arabic - 10);
-			if (5 <= arabic) return "V" + Convert(arabic - 5);
+			
 			return RomanNumberI(arabic);
 
 		}
