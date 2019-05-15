@@ -8,6 +8,11 @@ namespace AgileKatas
 
 		public static string Convert(int arabic)
 		{
+			if (arabic == 9)
+			{
+				return "IX";
+			}
+			
 			if (arabic == 4)
 			{
 				return "IV";
