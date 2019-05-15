@@ -6,18 +6,13 @@ namespace TestProject1
 {
 	public class RomanTests
 	{
-		[Fact]
-		public void Should_convert_1_to_I()
+		[Theory]
+		[InlineData(1, "I")]
+		[InlineData(2, "II")]
+		public void Should_convert_arabic_to_roman(int arabicNumber, string expectedRomanNumber)
 		{
-			var romanNumber = RomanConverter.Convert(1);
-			romanNumber.Should().Be("I");
-		}
-
-		[Fact]
-		public void Should_convert_2_to_II()
-		{
-			var romanNumber = RomanConverter.Convert(2);
-			romanNumber.Should().Be("II");
+			var romanNumber = RomanConverter.Convert(arabicNumber);
+			romanNumber.Should().Be(expectedRomanNumber);
 		}
 	}
 }
