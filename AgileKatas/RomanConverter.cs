@@ -2,9 +2,9 @@ namespace AgileKatas
 {
 	public class RomanConverter
 	{
-		private static readonly int[] ArabicNumbers = {1, 5, 10};
+		private static readonly int[] ArabicNumbers = {1, 5, 10, 50};
 
-		private static readonly string[] RomanNumbers = {"I", "V", "X"};
+		private static readonly string[] RomanNumbers = {"I", "V", "X", "L"};
 
 		public static string Convert(int arabic)
 		{
