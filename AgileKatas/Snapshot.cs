@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 
 namespace AgileKatas
@@ -18,6 +19,7 @@ namespace AgileKatas
 
 		public override bool Equals(object obj)
 		{
+			if (obj == null) throw new ArgumentNullException(nameof(obj));
 			return ReferenceEquals(this, obj) || obj is Snapshot other && Equals(other);
 		}
 
