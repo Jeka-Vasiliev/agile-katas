@@ -20,5 +20,21 @@ namespace TestProject1
 				"   ",
 			}));
 		}
+
+		[Fact]
+		public void Should_put_X_on_0_0_when_first_player_move()
+		{
+			var game = new Game();
+
+			game.Move(0, 0);
+			
+			var snapshot = game.Snapshot();
+			snapshot.Should().Be(new Snapshot(new[]
+			{
+				"X  ",
+				"   ",
+				"   ",
+			}));
+		}
 	}
 }
