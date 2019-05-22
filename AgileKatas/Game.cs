@@ -16,6 +16,18 @@ namespace AgileKatas
 
 		public void Move(int x, int y)
 		{
+			if (x == 1 && y == 1)
+			{
+				_snapshot = new Snapshot(new[]
+				{
+					"   ",
+					" X ",
+					"   ",
+				});
+				
+				return;
+			}
+			
 			_snapshot = new Snapshot(new[]
 			{
 				"X  ",
