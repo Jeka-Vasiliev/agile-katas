@@ -13,5 +13,12 @@ namespace TestProject1
 			Action act = () => new Snapshot(Array.Empty<string>()).Equals(null);
 			act.Should().Throw<ArgumentNullException>();
 		}
+
+		[Fact]
+		public void Should_throw_exception_when_create_with_null()
+		{
+			Action act = () => new Snapshot(null);
+			act.Should().Throw<ArgumentNullException>();
+		}
 	}
 }

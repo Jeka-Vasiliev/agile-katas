@@ -20,7 +20,5 @@ namespace TestProject1
 				"   ",
 			}));
 		}
-		
-		// TODO: arg tests
 	}
 }

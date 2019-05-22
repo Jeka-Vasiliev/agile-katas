@@ -9,7 +9,7 @@ namespace AgileKatas
 
 		public Snapshot(string[] strings)
 		{
-			_strings = strings;
+			_strings = strings ?? throw new ArgumentNullException(nameof(strings));
 		}
 
 		private bool Equals(Snapshot other)
