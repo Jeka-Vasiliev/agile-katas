@@ -81,7 +81,7 @@ namespace TestProject1
 		}
 
 		[Fact]
-		public void Should_X_Equals_Work_Correctly()
+		public void When_Compare_Two_Same_X_Then_Should_Be_Equals()
 		{
 			var expectedX = new X(0);
 			var x = new X(0);
@@ -90,12 +90,21 @@ namespace TestProject1
 		}
 
 		[Fact]
-		public void Should_Y_Equals_Work_Correctly()
+		public void When_Compare_Two_Same_Y_Then_Should_Be_Equals()
 		{
 			var expectedX = new Y(0);
 			var x = new Y(0);
 
 			x.Should().Be(expectedX);
+		}
+
+		[Fact]
+		public void When_Compare_Two_Same_Coordinates_Then_Should_Be_Equals()
+		{
+			var actual = new Coordinate(new X(1), new Y(2));
+			var expected = new Coordinate(new X(1), new Y(2));
+			
+			actual.Should().Be(expected);
 		}
 	}
 }
