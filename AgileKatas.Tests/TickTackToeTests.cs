@@ -88,5 +88,14 @@ namespace TestProject1
 			
 			x.Should().Be(expectedX);
 		}
+
+		[Fact]
+		public void Should_Y_Equals_Work_Correctly()
+		{
+			var expectedX = new Y(0);
+			var x = new Y(0);
+
+			x.Should().Be(expectedX);
+		}
 	}
 }
