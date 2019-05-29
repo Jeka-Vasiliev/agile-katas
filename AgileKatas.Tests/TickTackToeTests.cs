@@ -61,8 +61,8 @@ namespace TestProject1
 			actual.Should().Be(expected);
 		}
 
-		[Fact(Skip = "WIP")]
-		public void Ignored()
+		[Fact]
+		public void When_compare_two_different_board_they_should_not_be_equal()
 		{
 			var emptyBoard = new Board(@"
 ⬜⬜⬜

@@ -2,17 +2,24 @@ namespace AgileKatas
 {
 	public class Board
 	{
-		public Board()
+		private readonly string _content;
+
+		public Board(): this(@"
+⬜⬜⬜
+⬜⬜⬜
+⬜⬜⬜
+")
 		{
 		}
 		
-		public Board(string content) : this()
+		public Board(string content) 
 		{
+			_content = content;
 		}
 
 		protected bool Equals(Board other)
 		{
-			return true;
+			return string.Equals(_content, other._content);
 		}
 
 		public override bool Equals(object obj)
@@ -25,7 +32,7 @@ namespace AgileKatas
 
 		public override int GetHashCode()
 		{
-			throw new System.NotImplementedException();
+			return (_content != null ? _content.GetHashCode() : 0);
 		}
 	}
 }

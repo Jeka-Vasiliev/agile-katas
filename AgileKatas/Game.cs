@@ -9,8 +9,17 @@ namespace AgileKatas
 
 		public Board Move(Coordinate coordinate)
 		{
-			return new Board(@"
+			if (coordinate.Equals(new Coordinate(new X(0), new Y(0))))
+			{
+				return new Board(@"
 ✖⬜⬜
+⬜⬜⬜
+⬜⬜⬜
+");
+			}
+
+			return new Board(@"
+⬜✖⬜
 ⬜⬜⬜
 ⬜⬜⬜
 ");
