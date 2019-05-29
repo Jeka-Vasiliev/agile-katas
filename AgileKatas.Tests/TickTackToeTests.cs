@@ -42,6 +42,11 @@ namespace TestProject1
 ⬜⬜⬜
 ⬜⬜⬜
 ")]
+		[InlineData(1, 1, @"
+⬜⬜⬜
+⬜✖⬜
+⬜⬜⬜
+")]
 		public void When_first_move_on_x_y_board_should_contains_X_on_x_y(int x, int y, string boardContent)
 		{
 			var expected = new Board(boardContent);
