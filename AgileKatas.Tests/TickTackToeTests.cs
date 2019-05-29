@@ -15,5 +15,17 @@ namespace TestProject1
 
 			board.Should().NotBeNull();
 		}
+
+		[Fact]
+		public void When_game_start_then_board_should_be_empty()
+		{
+			var emptyBoard = new Board();
+			var game = new Game();
+
+			var board = game.Start();
+
+			board.Should().Be(emptyBoard);
+		}
+
 	}
 }

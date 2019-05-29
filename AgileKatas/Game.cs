@@ -2,9 +2,9 @@ namespace AgileKatas
 {
 	public class Game
 	{
-		public object Start()
+		public Board Start()
 		{
-			return new object();
+			return new Board();
 		}
 	}
 }
