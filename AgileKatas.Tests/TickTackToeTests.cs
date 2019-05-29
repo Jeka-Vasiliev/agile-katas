@@ -10,7 +10,7 @@ namespace TestProject1
 		public void When_game_start_then_board_is_not_null()
 		{
 			var game = new Game();
-			
+
 			var board = game.Start();
 
 			board.Should().NotBeNull();
@@ -31,32 +31,23 @@ namespace TestProject1
 			board.Should().Be(emptyBoard);
 		}
 
-		[Fact]
-		public void When_first_move_on_0_0_board_should_contains_X_on_0_0()
-		{
-			var expected = new Board(@"
+		[Theory]
+		[InlineData(0, 0, @"
 ✖⬜⬜
 ⬜⬜⬜
 ⬜⬜⬜
-");
-			var game = new Game();
-			game.Start();
-			var actual = game.Move(new Coordinate(new X(0), new Y(0)));
-
-			actual.Should().Be(expected);
-		}
-		[Fact]
-
-		public void When_first_move_on_1_0_board_should_contains_X_on_1_0()
-		{
-			var expected = new Board(@"
+")]
+		[InlineData(1, 0, @"
 ⬜✖⬜
 ⬜⬜⬜
 ⬜⬜⬜
-");
+")]
+		public void When_first_move_on_x_y_board_should_contains_X_on_x_y(int x, int y, string boardContent)
+		{
+			var expected = new Board(boardContent);
 			var game = new Game();
 			game.Start();
-			var actual = game.Move(new Coordinate(new X(1), new Y(0)));
+			var actual = game.Move(new Coordinate(new X(x), new Y(y)));
 
 			actual.Should().Be(expected);
 		}
@@ -85,7 +76,7 @@ namespace TestProject1
 		{
 			var expectedX = new X(0);
 			var x = new X(0);
-			
+
 			x.Should().Be(expectedX);
 		}
 
@@ -103,7 +94,7 @@ namespace TestProject1
 		{
 			var actual = new Coordinate(new X(1), new Y(2));
 			var expected = new Coordinate(new X(1), new Y(2));
-			
+
 			actual.Should().Be(expected);
 		}
 	}
