@@ -2,6 +2,14 @@ namespace AgileKatas
 {
 	public class Board
 	{
+		public Board()
+		{
+		}
+		
+		public Board(string content) : this()
+		{
+		}
+
 		protected bool Equals(Board other)
 		{
 			return true;

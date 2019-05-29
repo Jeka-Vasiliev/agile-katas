@@ -19,7 +19,11 @@ namespace TestProject1
 		[Fact]
 		public void When_game_start_then_board_should_be_empty()
 		{
-			var emptyBoard = new Board();
+			var emptyBoard = new Board(@"
+⬜⬜⬜
+⬜⬜⬜
+⬜⬜⬜
+");
 			var game = new Game();
 
 			var board = game.Start();
@@ -27,5 +31,12 @@ namespace TestProject1
 			board.Should().Be(emptyBoard);
 		}
 
+//		[Fact]
+//		public void MethodName()
+//		{
+//			var board = new Board();
+//			
+//			board.
+//		}
 	}
 }
