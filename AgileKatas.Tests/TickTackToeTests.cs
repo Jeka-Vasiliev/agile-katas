@@ -45,5 +45,20 @@ namespace TestProject1
 
 			actual.Should().Be(expected);
 		}
+		[Fact]
+
+		public void When_first_move_on_1_0_board_should_contains_X_on_1_0()
+		{
+			var expected = new Board(@"
+⬜✖⬜
+⬜⬜⬜
+⬜⬜⬜
+");
+			var game = new Game();
+			game.Start();
+			var actual = game.Move(new Coordinate(new X(1), new Y(0)));
+
+			actual.Should().Be(expected);
+		}
 	}
 }
