@@ -60,5 +60,33 @@ namespace TestProject1
 
 			actual.Should().Be(expected);
 		}
+
+		[Fact(Skip = "WIP")]
+		public void Ignored()
+		{
+			var emptyBoard = new Board(@"
+⬜⬜⬜
+⬜⬜⬜
+⬜⬜⬜
+");
+			var notEmptyBoard = new Board(@"
+⬜✖⬜
+⬜⬜⬜
+⬜⬜⬜
+");
+
+			var isSame = emptyBoard.Equals(notEmptyBoard);
+
+			isSame.Should().BeFalse();
+		}
+
+		[Fact]
+		public void Should_X_Equals_Work_Correctly()
+		{
+			var expectedX = new X(0);
+			var x = new X(0);
+			
+			x.Should().Be(expectedX);
+		}
 	}
 }
