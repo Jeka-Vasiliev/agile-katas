@@ -31,12 +31,19 @@ namespace TestProject1
 			board.Should().Be(emptyBoard);
 		}
 
-//		[Fact]
-//		public void MethodName()
-//		{
-//			var board = new Board();
-//			
-//			board.
-//		}
+		[Fact]
+		public void When_first_move_on_0_0_board_should_contains_X_on_0_0()
+		{
+			var expected = new Board(@"
+✖⬜⬜
+⬜⬜⬜
+⬜⬜⬜
+");
+			var game = new Game();
+			game.Start();
+			var actual = game.Move(new Coordinate(new X(0), new Y(0)));
+
+			actual.Should().Be(expected);
+		}
 	}
 }

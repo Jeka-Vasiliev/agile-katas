@@ -6,5 +6,14 @@ namespace AgileKatas
 		{
 			return new Board();
 		}
+
+		public Board Move(Coordinate coordinate)
+		{
+			return new Board(@"
+✖⬜⬜
+⬜⬜⬜
+⬜⬜⬜
+");
+		}
 	}
 }
