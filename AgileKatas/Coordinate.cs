@@ -31,5 +31,15 @@ namespace AgileKatas
 				return ((_x != null ? _x.GetHashCode() : 0) * 397) ^ (_y != null ? _y.GetHashCode() : 0);
 			}
 		}
+
+		public string MakeSign(Coordinate coordinate)
+		{
+			if (Equals(coordinate))
+			{
+				return "✖";
+			}
+
+			return "⬜";
+		}
 	}
 }

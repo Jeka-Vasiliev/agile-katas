@@ -25,26 +25,29 @@ namespace AgileKatas
 
 		public Board(Coordinate coordinate)
 		{
-			var content = new StringBuilder();
-			content.AppendLine();
-			for (int y = 0; y < 3; y++)
+			var stringBuilder = new StringBuilder();
+			stringBuilder.AppendLine();
+			FillColumns(coordinate, stringBuilder);
+
+			_content = stringBuilder.ToString();
+		}
+
+		private static void FillColumns(Coordinate coordinate, StringBuilder stringBuilder)
+		{
+			for (var y = 0; y < 3; y++)
 			{
-				for (int x = 0; x < 3; x++)
-				{
-					var coord = new Coordinate(new X(x), new Y(y));
-
-					if (coordinate.Equals(coord))
-					{
-						content.Append("✖");
-						continue;
-						
-					}
-					content.Append("⬜");
-				}
-				content.AppendLine();
+				FillRows(coordinate, y, stringBuilder);
+				stringBuilder.AppendLine();
 			}
+		}
 
-			_content = content.ToString();
+		private static void FillRows(Coordinate coordinate, int y, StringBuilder stringBuilder)
+		{
+			for (var x = 0; x < 3; x++)
+			{
+				var sign = coordinate.MakeSign(new Coordinate(new X(x), new Y(y)));
+				stringBuilder.Append(sign);
+			}
 		}
 
 		protected bool Equals(Board other)
